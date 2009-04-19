@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: webgen
 version: !ruby/object:Gem::Version 
-  version: 0.5.7.20090420
+  version: 0.5.8.20090419
 platform: ruby
 authors: 
 - Thomas Leitner
@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-02-27 00:00:00 +01:00
+date: 2009-04-19 00:00:00 -07:00
 default_executable: webgen
 dependencies: 
 - !ruby/object:Gem::Dependency 
@@ -54,17 +54,17 @@ dependencies:
     version: 
 - !ruby/object:Gem::Dependency 
   name: ramaze
-  type: :runtime
+  type: :development
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
     - - "="
       - !ruby/object:Gem::Version 
-        version: "2008.06"
+        version: "2009.02"
     version: 
 - !ruby/object:Gem::Dependency 
   name: launchy
-  type: :runtime
+  type: :development
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
@@ -140,7 +140,7 @@ dependencies:
     requirements: 
     - - "="
       - !ruby/object:Gem::Version 
-        version: 2.0.0
+        version: 2.4.2
     version: 
 - !ruby/object:Gem::Dependency 
   name: coderay
@@ -182,7 +182,22 @@ dependencies:
       - !ruby/object:Gem::Version 
         version: 1.2.9
     version: 
-description: webgen is used to generate static websites from templates and content files (which can be written in a markup language). It can generate dynamic content like menus on the fly and comes with many powerful extensions.
+- !ruby/object:Gem::Dependency 
+  name: archive-tar-minitar
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - "="
+      - !ruby/object:Gem::Version 
+        version: 0.5.2
+    version: 
+description: |
+  webgen is used to generate static websites from templates and content
+  files (which can be written in a markup language). It can generate
+  dynamic content like menus on the fly and comes with many powerful
+  extensions.
+
 email: t_leitner@gmx.at
 executables: 
 - webgen
@@ -378,6 +393,9 @@ files:
 - doc/manual.page
 - doc/reference_configuration.page
 - doc/reference_metainfo.page
+- doc/source
+- doc/source/filesystem.page
+- doc/source/tararchive.page
 - doc/sourcehandler
 - doc/sourcehandler/copy.page
 - doc/sourcehandler/directory.page
@@ -406,6 +424,7 @@ files:
 - doc/webgen_page_format.page
 - lib/webgen/blackboard.rb
 - lib/webgen/cache.rb
+- lib/webgen/cli/apply_command.rb
 - lib/webgen/cli/create_command.rb
 - lib/webgen/cli/run_command.rb
 - lib/webgen/cli/utils.rb
@@ -441,13 +460,13 @@ files:
 - lib/webgen/source/filesystem.rb
 - lib/webgen/source/resource.rb
 - lib/webgen/source/stacked.rb
+- lib/webgen/source/tararchive.rb
 - lib/webgen/source.rb
 - lib/webgen/sourcehandler/base.rb
 - lib/webgen/sourcehandler/copy.rb
 - lib/webgen/sourcehandler/directory.rb
 - lib/webgen/sourcehandler/feed.rb
 - lib/webgen/sourcehandler/fragment.rb
-- lib/webgen/sourcehandler/gallery.rb
 - lib/webgen/sourcehandler/memory.rb
 - lib/webgen/sourcehandler/metainfo.rb
 - lib/webgen/sourcehandler/page.rb
@@ -518,6 +537,7 @@ files:
 - test/test_source_filesystem.rb
 - test/test_source_resource.rb
 - test/test_source_stacked.rb
+- test/test_source_tararchive.rb
 - test/test_sourcehandler_base.rb
 - test/test_sourcehandler_copy.rb
 - test/test_sourcehandler_directory.rb
@@ -550,6 +570,8 @@ files:
 - test/helper.rb
 has_rdoc: true
 homepage: http://webgen.rubyforge.org
+licenses: []
+
 post_install_message: |+
   
   
@@ -565,10 +587,9 @@ post_install_message: |+
   
 rdoc_options: 
 - --line-numbers
-- --inline-source
-- --promiscuous
+- --all
 - --main
-- Webgen
+- lib/webgen/website.rb
 require_paths: 
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
@@ -586,9 +607,9 @@ required_rubygems_version: !ruby/object:Gem::Requirement
 requirements: []
 
 rubyforge_project: webgen
-rubygems_version: 1.3.1
+rubygems_version: 1.3.2
 signing_key: 
-specification_version: 2
+specification_version: 3
 summary: webgen beta build, not supported!!!
 test_files: []
 
