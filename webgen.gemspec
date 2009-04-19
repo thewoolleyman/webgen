@@ -48,9 +48,9 @@ dependencies:
   version_requirement: 
   version_requirements: !ruby/object:Gem::Requirement 
     requirements: 
-    - - "="
+    - - ">="
       - !ruby/object:Gem::Version 
-        version: >= 0.8.3
+        version: 0.8.3
     version: 
 - !ruby/object:Gem::Dependency 
   name: ramaze
