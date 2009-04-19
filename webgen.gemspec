@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: webgen
 version: !ruby/object:Gem::Version 
-  version: 0.5.7.20090227
+  version: 0.5.7.20090420
 platform: ruby
 authors: 
 - Thomas Leitner
@@ -50,7 +50,7 @@ dependencies:
     requirements: 
     - - "="
       - !ruby/object:Gem::Version 
-        version: 0.8.3
+        version: >= 0.8.3
     version: 
 - !ruby/object:Gem::Dependency 
   name: ramaze
